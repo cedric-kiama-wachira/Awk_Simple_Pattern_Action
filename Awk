@@ -34,8 +34,13 @@ awk '$3 == 0 { print $0 }' Employees.data
 # Or its the same as
 awk '$3 == 0 { print }' Employees.data
 
-# Now lets add a line number to make the output more pretty
+# Now lets add a line number using NR variable to make the output more pretty
 awk '$3 == 0 { print NR, $0 }' Employees.data
 
+# The NF variable is used to print the specified field to be out put
 
+awk '{ print NR, NF, $1, $NF }' Employees.data
+
+# Putting Text in the Output
+awk '{ print "total pay for", $1, "is", $2 * $3 }' Employees.data
 

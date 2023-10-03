@@ -52,3 +52,7 @@ awk '{ printf("%-8s $%6.2f\n", $1, $2 * $3) }' Employees.data
 
 # Adding text to above to make it more readable
 awk '{ printf("total pay for %-8s is $%6.2f\n", $1, $2 * $3) }' Employees.data
+
+# Introducing Sorting and pipes THIS ONE NEEDS MORE WORK AND ATTENTION
+awk '{ printf("%6.2f %s\n", $2 * $3, $0) }' Employees.data | sort
+

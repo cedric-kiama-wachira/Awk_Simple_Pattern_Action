@@ -28,5 +28,14 @@ awk '{ print $1 }' Employees.data
 # Now lets omit the input file from the program
 awk '$3 == 0 { print $1 }'
 
+# Now lets print the whole line
+awk '$3 == 0 { print $0 }' Employees.data
+
+# Or its the same as
+awk '$3 == 0 { print }' Employees.data
+
+# Now lets add a line number to make the output more pretty
+awk '$3 == 0 { print NR, $0 }' Employees.data
+
 
 

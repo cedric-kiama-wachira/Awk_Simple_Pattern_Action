@@ -44,3 +44,11 @@ awk '{ print NR, NF, $1, $NF }' Employees.data
 # Putting Text in the Output
 awk '{ print "total pay for", $1, "is", $2 * $3 }' Employees.data
 
+# Fancier output using printf
+awk '{ printf("total pay for %s this month is $%.2f\n", $1, $2 * $3) }' Employees.data
+
+# More fanciness with printf
+awk '{ printf("%-8s $%6.2f\n", $1, $2 * $3) }' Employees.data
+
+# Adding text to above to make it more readable
+awk '{ printf("total pay for %-8s is $%6.2f\n", $1, $2 * $3) }' Employees.data

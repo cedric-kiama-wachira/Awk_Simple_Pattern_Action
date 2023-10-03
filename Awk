@@ -56,3 +56,12 @@ awk '{ printf("total pay for %-8s is $%6.2f\n", $1, $2 * $3) }' Employees.data
 # Introducing Sorting and pipes THIS ONE NEEDS MORE WORK AND ATTENTION
 awk '{ printf("%6.2f %s\n", $2 * $3, $0) }' Employees.data | sort
 
+# Adding Selection Option
+awk '$2 >= 5 { printf("$%.2f for %s\n", $2 * $3, $1) }' Employees.data
+awk '$2 >= 5 { print $0 }' Employees.data
+
+awk '$2 * $3 > 50 { printf("$%.2f for %s\n", $2 * $3, $1) }' Employees.data
+
+# Get text only
+awk '$1 == "Susie" { print $0 }' Employees.data
+

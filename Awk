@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Using a single pattern action statement to retrieve data for each employee that didnt work
+# Column one of the Employees.data file contains Employee's name
+# Columne two of the Employees.data file contains Dollars per hour rate
+# Columnt three of the Employees.data file contains the No of Hours worked
+# Contents of the data file as shown below:
+#
+# Beth    4.00    0
+# Dan     3.75    0
+# Kathy   4.00    10
+# Mark    5.00    20
+# Mary    5.50    22
+# Susie   4.25    18
+
+# Now I want to print the name and pay (rate times hours) for everyone who worked more than zero hours.
+awk '$3 > 0 { print $1, $2 * $3 }' Employees.data
+
+# Now I want to print the names of those employees who did not work.
+awk '$3 == 0 { print $1 }' Employees.data
+
+# Now let me omit the action  and maintain only the pattern
+awk '$3 == 0 ' Employees.data
+
+# Now let me omit the pattern  and maintain only the action only
+awk '{ print $1 }' Employees.data
+
+# Now lets omit the input file from the program
+awk '$3 == 0 { print $1 }'
+
+
+

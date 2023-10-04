@@ -106,3 +106,23 @@ awk '{ names = names $1 " " } END { print names }' Employees.data
 
 # Printing the last input line
 awk '{ last = $0 } END { print last }' Employees.data
+
+#  Compute the length of each persons name
+awk '{ print $1, length($1) }' Employees.data
+
+# Counting lines, words and characters
+awk '{ nc = nc + length($0) + 1 
+nw = nw + NF
+}
+END { print NR, "lines,", nw, "words,", nc,  "Characters" }' Employees.data
+
+# Adding a control flow statement to check if employees earn more than $6 per hour
+awk '$2 > 6 { n = n + 1; pay = pay + $2 * $3 }
+END { if (n > 0)
+	print n, "employees, total pay is" , pay,
+		 "average pay is" , pay/n
+	else
+		print "no employees are paid more than $6/hour"
+	}' Employees.data
+
+

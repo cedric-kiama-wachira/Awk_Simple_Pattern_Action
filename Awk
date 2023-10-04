@@ -91,7 +91,6 @@ awk '$3 > 15 { emp = emp + 1 } END { print emp, "employees worked more than 15 h
 awk 'END { print NR, "employees" }' Employees.data
 
 # Computing the Average Pay
-
 awk  '{ pay = pay + $2 * $3 } 
 END { print NR, "employees" 
       print "total pay is", pay 
@@ -102,3 +101,8 @@ END { print NR, "employees"
 awk '$2 > maxrate { maxrate = $2; maxemp = $1 }
 END { print "highest hourly rate:", maxrate, "for", maxemp }' Employees.data
 
+# Creating new strings by combining old ones - Concatenation
+awk '{ names = names $1 " " } END { print names }' Employees.data
+
+# Printing the last input line
+awk '{ last = $0 } END { print last }' Employees.data

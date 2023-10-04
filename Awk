@@ -83,3 +83,22 @@ awk '$3 > 60   { print $0, "too many hours worked" }' Employees.data
 
 # Using BEGIN to print a heading
 awk 'BEGIN { print "NAME    RATE    HOURS"; print "" } { print }' Employees.data
+
+# Computing with AWK - Counting, lets get the no of employees who have worked more than 15 hours
+awk '$3 > 15 { emp = emp + 1 } END { print emp, "employees worked more than 15 hours" }' Employees.data
+
+# Computing sums and averages using the NR inbuilt variable
+awk 'END { print NR, "employees" }' Employees.data
+
+# Computing the Average Pay
+
+awk  '{ pay = pay + $2 * $3 } 
+END { print NR, "employees" 
+      print "total pay is", pay 
+      print "average pay is", pay/NR
+      }' Employees.data
+
+# Handling Texts as String characters
+awk '$2 > maxrate { maxrate = $2; maxemp = $1 }
+END { print "highest hourly rate:", maxrate, "for", maxemp }' Employees.data
+

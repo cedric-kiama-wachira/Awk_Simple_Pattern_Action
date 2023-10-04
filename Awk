@@ -71,3 +71,12 @@ awk ' /Susie/ { print $0 }' Employees.data
 # Combination of Patterns
 awk '$2 >= 4 || $3 >= 20 { print  $0 }' Employees.data
 
+# Introducing Not true in the combination Patterns
+awk '!( $2 < 4 && $3 < 20) { print $0 } ' Employees.data
+
+# Data Validation using five plausability tests
+awk 'NF != 3   { print $0, "number of fields is not equal to 3" }' Employees.data
+awk '$2 < 3.35 { print $O, "rate is below minimum wage" }' Employees.data
+awk '$2 > 10   { print $0, "rate exceeds $10 per hour" }' Employees.data
+awk '$3 < 0    { print $0, "negative hours worked" }' Employees.data
+awk '$3 > 60   { print $0, "too many hours worked" }' Employees.data
